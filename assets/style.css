@@ -527,3 +527,44 @@ img{max-width:100%; display:block}
               radial-gradient(900px 500px at 70% 40%, rgba(124,243,255,.10), transparent 60%),
               linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.35));
 }
+/* =========================
+   FORCE LOGO HERO (FIX)
+   ========================= */
+
+/* tangkep semua kemungkinan logo yang tampil di hero */
+.hero .logo,
+.hero .logo img,
+.hero .logo-wrap > img,
+.hero .logo-wrap a > img,
+.hero img.logo,
+.hero img[alt*="logo" i],
+.hero img[alt*="tiyara" i]{
+  width:120px !important;
+  height:120px !important;
+  border-radius:50% !important;
+  object-fit:cover !important;
+  aspect-ratio:1/1 !important;
+  display:block !important;
+  overflow:hidden !important;
+
+  /* biar keliatan “bulat besar” + glow */
+  border:2px solid rgba(255,255,255,.22) !important;
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.45),
+    0 0 0 6px rgba(255,214,77,.10),
+    0 0 30px rgba(124,243,255,.20) !important;
+}
+
+/* versi hp kecil */
+@media (max-width:480px){
+  .hero .logo,
+  .hero .logo img,
+  .hero .logo-wrap > img,
+  .hero .logo-wrap a > img,
+  .hero img.logo,
+  .hero img[alt*="logo" i],
+  .hero img[alt*="tiyara" i]{
+    width:100px !important;
+    height:100px !important;
+  }
+}
