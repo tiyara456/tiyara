@@ -145,30 +145,85 @@ img{max-width:100%; display:block}
   .hero-inner{ grid-template-columns: 1fr; }
 }
 
+/* =========================
+   LOGO (FIX + BESAR + PETIR)
+   ========================= */
 .logo-wrap{
   display:flex;
   align-items:center;
-  gap:14px;
+  gap:16px;
   margin-bottom:14px;
 }
+
 .logo{
-  width:78px;
-  height:78px;
+  width:120px;               /* DIBESARIN */
+  height:120px;
+  flex:0 0 120px;
   border-radius:50%;
-  border:1px solid rgba(255,255,255,.18);
+  border:2px solid rgba(255,255,255,.22);
   overflow:hidden;
-  box-shadow: 0 18px 45px rgba(0,0,0,.35);
+  box-shadow: 0 22px 60px rgba(0,0,0,.45);
   position:relative;
 }
+
+/* glow lembut di belakang */
 .logo::after{
   content:"";
   position:absolute;
-  inset:-2px;
-  background: conic-gradient(from 180deg, rgba(255,214,77,.55), rgba(124,243,255,.45), rgba(195,139,255,.45), rgba(255,214,77,.55));
+  inset:-6px;
+  background: conic-gradient(
+    from 180deg,
+    rgba(255,214,77,.55),
+    rgba(124,243,255,.45),
+    rgba(195,139,255,.45),
+    rgba(255,214,77,.55)
+  );
   filter: blur(18px);
   opacity:.55;
   z-index:0;
+  animation: spinGlow 2.2s linear infinite;
 }
+
+/* ring petir melingkar */
+.logo::before{
+  content:"";
+  position:absolute;
+  inset:-10px;
+  border-radius:50%;
+  z-index:2;
+  pointer-events:none;
+
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent 0 8%,
+      rgba(124,243,255,.95) 8% 11%,
+      transparent 11% 18%,
+      rgba(255,214,77,.95) 18% 21%,
+      transparent 21% 32%,
+      rgba(195,139,255,.95) 32% 35%,
+      transparent 35% 48%,
+      rgba(124,243,255,.95) 48% 52%,
+      transparent 52% 63%,
+      rgba(255,214,77,.95) 63% 66%,
+      transparent 66% 78%,
+      rgba(195,139,255,.95) 78% 82%,
+      transparent 82% 100%
+    );
+
+  filter:
+    blur(.2px)
+    drop-shadow(0 0 10px rgba(124,243,255,.55))
+    drop-shadow(0 0 16px rgba(255,214,77,.35))
+    drop-shadow(0 0 14px rgba(195,139,255,.30));
+
+  -webkit-mask: radial-gradient(circle, transparent 57%, #000 58%);
+          mask: radial-gradient(circle, transparent 57%, #000 58%);
+
+  animation: lightningSpin 1.05s linear infinite, lightningFlicker .12s infinite alternate;
+  opacity:.95;
+}
+
 .logo img{
   width:100%;
   height:100%;
@@ -176,6 +231,17 @@ img{max-width:100%; display:block}
   position:relative;
   z-index:1;
 }
+
+/* biar pas di hp kecil */
+@media (max-width: 480px){
+  .logo{
+    width:100px;
+    height:100px;
+    flex:0 0 100px;
+  }
+}
+
+/* --- title --- */
 .title{
   margin:0;
   font-size: clamp(22px, 3.6vw, 34px);
@@ -386,10 +452,15 @@ img{max-width:100%; display:block}
   animation: load 1.35s ease-in-out forwards;
 }
 
+/* KEYFRAMES TAMBAHAN (PETIR + GLOW) */
 @keyframes spin{ to{ transform: rotate(360deg); } }
 @keyframes bob{ 0%,100%{ transform: translateY(0) rotate(0deg);} 50%{ transform: translateY(-6px) rotate(-1deg);} }
 @keyframes blink{ 0%,92%,100%{ transform: scaleY(1);} 94%{ transform: scaleY(.1);} 96%{ transform: scaleY(1);} }
 @keyframes load{ to{ width: 100%; } }
+
+@keyframes spinGlow{ to{ transform: rotate(360deg); } }
+@keyframes lightningSpin{ to{ transform: rotate(360deg); } }
+@keyframes lightningFlicker{ 0%{ opacity:.75; } 100%{ opacity:1; } }
 
 /* --- modal QR --- */
 .modal{
