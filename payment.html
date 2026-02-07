@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b1230" />
+  <title>Payment — TIYARA274 STR</title>
+  <meta name="description" content="Payment TIYARA274 STR — QRIS & all payment a.n. Tiyara." />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <canvas class="fx-bg" id="fxBg"></canvas>
+  <div class="fx-overlay"></div>
+
+  <div class="container">
+    <div class="nav">
+      <div class="brand">
+        <div class="pill">
+          <span style="font-weight:800;">TIYARA274 STR</span>
+          <span class="badge">Payment</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a class="btn" href="index.html">🏠 Beranda</a>
+        <a class="btn" href="game.html">🎮 Game</a>
+        <a class="btn primary" data-wa="order" href="#">💬 Order</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="logo-wrap">
+            <div class="logo">
+              <img src="image/logo.jpg" alt="Logo TIYARA274 STR" />
+            </div>
+            <div>
+              <h1 class="title">Payment TIYARA274 STR</h1>
+              <p class="subtitle">
+                Semua pembayaran atas nama <b>Tiyara</b>. Untuk QRIS: klik tombol <b>QRIS</b> agar tampil full layar.
+              </p>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn primary" id="openQris" type="button">🧾 QRIS (Klik)</button>
+            <button class="btn" id="downloadQris" type="button">⬇️ Download QRIS</button>
+            <button class="btn" id="sendProof" type="button">📩 Kirim Bukti Pembayaran</button>
+            <a class="btn ghost" href="index.html">← Kembali</a>
+          </div>
+
+          <p class="small" style="margin-top:12px;">
+            Setelah transfer, klik <b>Kirim Bukti Pembayaran</b> untuk chat otomatis.
+          </p>
+        </div>
+
+        <aside class="panel">
+          <h3>Ringkas</h3>
+          <div class="kv">
+            <div class="row"><span>Atas Nama</span><span>Tiyara</span></div>
+            <div class="row"><span>Kontak</span><span>0813 5025 8345</span></div>
+            <div class="row"><span>QRIS</span><span>image/qris.jpg</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section class="panel">
+        <h3>💳 List Payment</h3>
+        <ul class="list">
+          <li class="item"><span class="dot"></span><span class="txt"><b>QRIS</b> — (klik tombol QRIS untuk full layar)</span></li>
+          <li class="item"><span class="dot"></span><span class="txt">DANA: <b>0813 4677 9476</b></span></li>
+          <li class="item"><span class="dot"></span><span class="txt">GoPay: <b>0813 4677 9476</b></span></li>
+          <li class="item"><span class="dot"></span><span class="txt">OVO: <b>0813 5025 8345</b></span></li>
+          <li class="item"><span class="dot"></span><span class="txt">LinkAja: <b>0813 4677 9476</b></span></li>
+          <li class="item"><span class="dot"></span><span class="txt">ShopeePay: <b>0813 4677 9476</b></span></li>
+          <li class="item"><span class="dot"></span><span class="txt">SeaBank: <b>9012 4564 4269</b></span></li>
+          <li class="item"><span class="dot"></span><span class="txt">Jago: <b>105 560 560 162</b></span></li>
+          <li class="item"><span class="dot"></span><span class="txt">BRIMO: <b>224 601 024 490 506</b></span></li>
+        </ul>
+
+        <p class="small" style="margin-top:12px;">
+          Tips: sebelum bayar, pastikan nominal & tujuan benar. Simpan bukti transfer untuk diproses lebih cepat.
+        </p>
+      </section>
+
+      <section class="panel">
+        <h3>🧾 Preview QRIS</h3>
+        <p class="small" style="margin:0 0 12px;">Klik gambar / tombol QRIS untuk memperbesar full layar.</p>
+        <a href="javascript:void(0)" id="openQrisInline" class="btn" style="width:100%; margin-bottom:10px;">🔍 Perbesar QRIS</a>
+        <img src="image/qris.jpg" alt="QRIS TIYARA274 STR" style="border-radius:18px; border:1px solid rgba(255,255,255,.12);" />
+      </section>
+    </div>
+
+    <!-- Modal QR Fullscreen -->
+    <div class="modal" id="qrisModal" aria-hidden="true">
+      <div class="modal-card" role="dialog" aria-modal="true">
+        <div class="modal-head">
+          <div class="pill"><b>QRIS — TIYARA274 STR</b></div>
+          <button class="btn" id="closeQris" type="button">✖ Tutup</button>
+        </div>
+        <div class="modal-body">
+          <img src="image/qris.jpg" alt="QRIS Fullscreen" />
+          <div style="display:flex; gap:10px; flex-wrap:wrap; padding:12px 0 0;">
+            <button class="btn primary" id="downloadQris2" type="button">⬇️ Download QRIS</button>
+            <button class="btn" id="sendProof2" type="button">📩 Kirim Bukti</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="assets/app.js"></script>
+    <script>
+      // extra buttons inside page
+      document.getElementById("openQrisInline").addEventListener("click", ()=> {
+        document.getElementById("qrisModal").classList.add("show");
+      });
+      document.getElementById("downloadQris2").addEventListener("click", ()=> {
+        const a = document.createElement("a");
+        a.href = "image/qris.jpg";
+        a.download = "QRIS-TIYARA274-STR.jpg";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      });
+      document.getElementById("sendProof2").addEventListener("click", ()=> {
+        const text = encodeURIComponent("Hallo kak Tiyara, ini aku kirim bukti pembayaran ya.");
+        window.location.href = `https://wa.me/6281350258345?text=${text}`;
+      });
+    </script>
+  </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b1230" />
+  <title>Game Dino — TIYARA274 STR</title>
+  <meta name="description" content="Game lucu tema dino kuning — kumpulkan bintang, hindari bom." />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <canvas class="fx-bg" id="fxBg"></canvas>
+  <div class="fx-overlay"></div>
+
+  <div class="container">
+    <div class="nav">
+      <div class="brand">
+        <div class="pill">
+          <span style="font-weight:800;">TIYARA274 STR</span>
+          <span class="badge">Game Dino</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a class="btn" href="index.html">🏠 Beranda</a>
+        <a class="btn" href="payment.html">💳 Payment</a>
+        <a class="btn primary" data-wa="order" href="#">💬 Order</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="logo-wrap">
+            <div class="logo">
+              <img src="image/logo.jpg" alt="Logo TIYARA274 STR" />
+            </div>
+            <div>
+              <h1 class="title">Dino Catch 🦖✨</h1>
+              <p class="subtitle">
+                Kumpulkan <b>bintang</b> untuk skor, hindari <b>bom</b> supaya nyawa tidak habis.
+                Di HP tinggal <b>geser</b> dino. Di PC bisa pakai <b>← →</b>. Restart: tombol atau <b>R</b>.
+              </p>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <button class="btn primary" id="restartGame" type="button">🔄 Restart</button>
+            <a class="btn" href="index.html">← Kembali</a>
+            <a class="btn" data-wa="order" href="#">💬 Order Jasa</a>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <h3>Scoreboard</h3>
+          <div class="kv">
+            <div class="row"><span>Score</span><span id="score">0</span></div>
+            <div class="row"><span>Best</span><span id="best">0</span></div>
+            <div class="row"><span>Lives</span><span id="lives">3</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <div class="game-wrap">
+      <div class="game-top">
+        <div class="pill">🎯 Target: Bintang (+1) • 💣 Bom (-1 nyawa)</div>
+        <div class="pill">Tip: makin tinggi skor, makin cepat ✨</div>
+      </div>
+
+      <div class="canvas-card">
+        <canvas id="gameCanvas"></canvas>
+      </div>
+
+      <div class="footer">
+        <p class="small" style="margin:0;">
+          Kalau mau order setelah main: klik tombol <b>Order</b> (auto chat ke WhatsApp TIYARA274 STR).
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/app.js"></script>
+</body>
+</html>
